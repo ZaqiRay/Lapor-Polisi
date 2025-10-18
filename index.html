@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapor Polisi - Portal Pengaduan Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="white"/>
+                    </svg>
+                    <h1>Lapor Polisi</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <nav class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#lapor">Lapor</a></li>
+                        <li><a href="#lokasi">Lokasi Polisi</a></li>
+                        <li><a href="#bantuan">Bantuan</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Portal Pengaduan Online Kepolisian</h2>
+            <p>Laporkan kejadian kriminal, berikan informasi, atau minta bantuan darurat melalui platform online kami. Layanan 24/7 untuk keamanan dan ketertiban masyarakat.</p>
+            <a href="#lapor" class="btn">Laporkan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        <!-- Emergency Section -->
+        <section class="emergency">
+            <h2>Keadaan Darurat?</h2>
+            <p>Jika Anda berada dalam situasi berbahaya atau memerlukan bantuan segera:</p>
+            <div class="emergency-buttons">
+                <a href="tel:110" class="btn emergency-btn">
+                    <span class="btn-icon">📞</span>
+                    PANGGIL POLISI 110
+                </a>
+                <a href="tel:112" class="btn emergency-btn secondary">
+                    <span class="btn-icon">🚨</span>
+                    DARURAT UMUM 112
+                </a>
+            </div>
+            <p class="emergency-note">Tombol di atas akan langsung menghubungi nomor darurat</p>
+        </section>
+
+        <!-- Lapor Section -->
+        <section id="lapor">
+            <h2 class="section-title">Formulir Laporan Online</h2>
+            <div class="form-container">
+                <form id="laporanForm">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="nama">Nama Pelapor *</label>
+                                <input type="text" id="nama" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="telepon">Nomor Telepon *</label>
+                                <input type="tel" id="telepon" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jenisLaporan">Jenis Laporan *</label>
+                        <select id="jenisLaporan" class="form-control" required>
+                            <option value="">Pilih Jenis Laporan</option>
+                            <option value="pencurian">Pencurian</option>
+                            <option value="penganiayaan">Penganiayaan</option>
+                            <option value="penipuan">Penipuan</option>
+                            <option value="kecelakaan">Kecelakaan Lalu Lintas</option>
+                            <option value="narkoba">Penyalahgunaan Narkoba</option>
+                            <option value="kekerasan">Kekerasan Dalam Rumah Tangga</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lokasi">Lokasi Kejadian *</label>
+                        <input type="text" id="lokasi" class="form-control" placeholder="Alamat lengkap kejadian" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="waktu">Waktu Kejadian *</label>
+                        <input type="datetime-local" id="waktu" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="kronologi">Kronologi Kejadian *</label>
+                        <textarea id="kronologi" class="form-control" placeholder="Jelaskan secara detail kejadian yang dialami" required></textarea>
+                    </div>
+                    
+                    <!-- Updated File Upload Section -->
+                    <div class="form-group">
+                        <label for="bukti">Upload Bukti (Opsional)</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="file-upload-icon">📎</div>
+                            <div class="file-upload-text">
+                                <strong>Klik untuk memilih file atau drop file di sini</strong>
+                                <p>Format: JPG, PNG, PDF (Maks. 5MB)</p>
+                            </div>
+                            <input type="file" id="bukti" class="file-input" accept=".jpg,.jpeg,.png,.pdf,.gif">
+                        </div>
+                        <div id="filePreviewContainer"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Kirim Laporan</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Lokasi Polisi Section -->
+        <section id="lokasi">
+            <h2 class="section-title">Kantor Polisi Terdekat</h2>
+            <div class="police-stations">
+                <div class="station-card">
+                    <h3>Polresta Jakarta Pusat</h3>
+                    <p>📞 <a href="tel:0213848537">(021) 384-8537</a></p>
+                    <p>📍 Jl. Kramat Raya No.75, Jakarta Pusat</p>
+                    <a href="tel:0213848537" class="btn call-btn">Hubungi</a>
+                </div>
+                
+                <div class="station-card">
+                    <h3>Polresta Jakarta Selatan</h3>
+                    <p>📞 <a href="tel:0217208160">(021) 720-8160</a></p>
+                    <p>📍 Jl. Wijaya I No.32, Jakarta Selatan</p>
+                    <a href="tel:0217208160" class="btn call-btn">Hubungi</a>
+                </div>
+                
+                <div class="station-card">
+                    <h3>Polresta Jakarta Barat</h3>
+                    <p>📞 <a href="tel:0215483254">(021) 548-3254</a></p>
+                    <p>📍 Jl. Kembangan Raya No.1, Jakarta Barat</p>
+                    <a href="tel:0215483254" class="btn call-btn">Hubungi</a>
+                </div>
+                
+                <div class="station-card">
+                    <h3>Polresta Jakarta Timur</h3>
+                    <p>📞 <a href="tel:0218193060">(021) 819-3060</a></p>
+                    <p>📍 Jl. Raya Bogor No.1, Jakarta Timur</p>
+                    <a href="tel:0218193060" class="btn call-btn">Hubungi</a>
+                </div>
+                
+                <div class="station-card">
+                    <h3>Polresta Jakarta Utara</h3>
+                    <p>📞 <a href="tel:02143931080">(021) 4393-1080</a></p>
+                    <p>📍 Jl. Yos Sudarso No.1, Jakarta Utara</p>
+                    <a href="tel:02143931080" class="btn call-btn">Hubungi</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Laporan Online</h3>
+                    <p>Laporkan kejadian kriminal atau berikan informasi melalui formulir online yang mudah diakses.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚔</div>
+                    <h3>Panggilan Darurat</h3>
+                    <p>Hubungi langsung polisi melalui tombol darurat untuk keadaan mendesak.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Lokasi Terdekat</h3>
+                    <p>Temukan kantor polisi terdekat dengan nomor telepon yang dapat dihubungi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bantuan Section -->
+        <section id="bantuan">
+            <h2 class="section-title">Pusat Bantuan</h2>
+            <div class="help-grid">
+                <div class="help-card">
+                    <h3>📞 Nomor Darurat</h3>
+                    <ul class="emergency-numbers">
+                        <li><strong>Polisi:</strong> <a href="tel:110">110</a></li>
+                        <li><strong>Darurat Umum:</strong> <a href="tel:112">112</a></li>
+                        <li><strong>Ambulans:</strong> <a href="tel:118">118</a></li>
+                        <li><strong>Pemadam Kebakaran:</strong> <a href="tel:113">113</a></li>
+                        <li><strong>SAR:</strong> <a href="tel:115">115</a></li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h3>ℹ️ Informasi Penting</h3>
+                    <ul>
+                        <li>Gunakan tombol darurat hanya untuk keadaan serius</li>
+                        <li>Siapkan informasi lokasi sebelum menelepon</li>
+                        <li>Jangan mematikan telepon sampai petunjuk diberikan</li>
+                        <li>Simpan nomor darurat di ponsel Anda</li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h3>🆘 Langkah Darurat</h3>
+                    <ol>
+                        <li>Tenangkan diri dan cari tempat aman</li>
+                        <li>Hubungi polisi melalui tombol darurat</li>
+                        <li>Sebutkan lokasi dan jenis kejadian dengan jelas</li>
+                        <li>Ikuti instruksi petugas</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Darurat</h3>
+                    <ul>
+                        <li><a href="tel:110">Polisi: 110</a></li>
+                        <li><a href="tel:118">Ambulans: 118</a></li>
+                        <li><a href="tel:113">Pemadam Kebakaran: 113</a></li>
+                        <li><a href="tel:115">SAR: 115</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#lapor">Buat Laporan</a></li>
+                        <li><a href="#lokasi">Lokasi Polisi</a></li>
+                        <li><a href="#bantuan">Bantuan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lapor Polisi - Portal Pengaduan Online. Semua hak dilindungi.</p>
+                <p class="disclaimer">Gunakan layanan ini dengan bijak. Laporan palsu dapat dikenai sanksi hukum.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
